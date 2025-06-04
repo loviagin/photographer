@@ -18,6 +18,13 @@
   gap: 1rem;
 }
 
+.footerLogo h3 {
+  font-family: 'Imperial Script', cursive;
+  font-size: 2rem;
+  font-weight: 500;
+  color: white;
+}
+
 .logo {
   filter: brightness(0) invert(1);
 }

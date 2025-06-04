@@ -1,17 +1,51 @@
+"use client"
 import Image from "next/image";
+import { useState, useEffect } from "react";
 import styles from "./Hero.module.css";
 
+const slides = [
+  {
+    image: "/moscow.webp"
+  },
+  {
+    image: "/moscow.webp"
+  },
+  {
+    image: "/moscow.webp"
+  }
+];
+
 export default function Hero() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
+  };
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroBackground}>
-        <Image
-          src="/hero-bg.jpg"
-          alt="Фотосессия"
-          fill
-          priority
-          className={styles.heroImage}
-        />
+        {slides.map((slide, index) => (
+          <Image
+            key={index}
+            src={slide.image}
+            alt="Фотосессия"
+            fill
+            priority={index === 0}
+            className={`${styles.heroImage} ${index === currentSlide ? styles.active : ''}`}
+          />
+        ))}
         <div className={styles.heroOverlay} />
       </div>
       
@@ -43,6 +77,28 @@ export default function Hero() {
             </svg>
           </button>
         </div>
+
+        {/* <div className={styles.sliderNavigation}>
+          <button onClick={prevSlide} className={styles.sliderButton}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+          <div className={styles.sliderDots}>
+            {slides.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.sliderDot} ${index === currentSlide ? styles.active : ''}`}
+                onClick={() => setCurrentSlide(index)}
+              />
+            ))}
+          </div>
+          <button onClick={nextSlide} className={styles.sliderButton}>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 6L15 12L9 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div> */}
 
         <div className={styles.heroScroll}>
           <span>Прокрутите вниз</span>

@@ -1,9 +1,9 @@
-import Hero from "./components/Hero";
-import Features from "./components/Features";
-import Categories from "./components/Categories";
-import Reviews from "./components/Reviews";
-import Booking from "./components/Booking";
-import About from "./components/About";
+import Hero from "./components/Hero/Hero";
+import Features from "./components/Features/Features";
+import Categories from "./components/Categories/Categories";
+import Reviews from "./components/Reviews/Reviews";
+import Booking from "./components/Booking/Booking";
+import About from "./components/About/About";
 import styles from "./page.module.css";
 
 export default function Home() {
@@ -14,7 +14,7 @@ export default function Home() {
       {/* <Categories />
       <Reviews />
       <Booking />
-      <About /> */}
+      <About />  */}
     </main>
   );
 }

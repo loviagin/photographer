@@ -16,13 +16,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          <Image
-            src="/logo.png"
-            alt="Логотип фотографа"
-            width={150}
-            height={50}
-            priority
-          />
+          <h3>Photochki</h3>
         </Link>
 
         <button 

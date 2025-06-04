@@ -6,13 +6,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.footerContent}>
         <div className={styles.footerLogo}>
-          <Image
-            src="/logo.png"
-            alt="Логотип"
-            width={150}
-            height={50}
-            className={styles.logo}
-          />
+          <h3>Photochki</h3>
           <p className={styles.footerText}>
             Профессиональная фотосъемка для любых событий
           </p>
