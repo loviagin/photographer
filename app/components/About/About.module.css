@@ -1,6 +1,18 @@
 .about {
-  padding: 4rem 2rem;
-  background-color: #f8f9fa;
+  padding: 8rem 2rem;
+  background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+  position: relative;
+  overflow: hidden;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(255, 107, 107, 0.3), transparent);
 }
 
 .aboutContent {
@@ -8,21 +20,33 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: 6rem;
   align-items: center;
+  position: relative;
 }
 
 .aboutImage {
   position: relative;
-  border-radius: 10px;
+  border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.aboutImage:hover {
+  transform: perspective(1000px) rotateY(0deg);
 }
 
 .photographerImage {
   width: 100%;
   height: auto;
   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.aboutImage:hover .photographerImage {
+  transform: scale(1.05);
 }
 
 .aboutText {
@@ -30,73 +54,121 @@
 }
 
 .aboutText h2 {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   margin-bottom: 2rem;
-  color: #333;
+  color: #ff6b6b;
+  position: relative;
+  display: inline-block;
+}
+
+.aboutText h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: #ff6b6b;
+  border-radius: 2px;
 }
 
 .aboutDescription {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.2rem;
+  line-height: 1.8;
   color: #444;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 1.5rem;
+  border-left: 3px solid rgba(255, 107, 107, 0.3);
 }
 
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+  gap: 2.5rem;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .statItem {
   text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.statItem:hover {
+  transform: translateY(-5px);
 }
 
 .statNumber {
   display: block;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
-  color: #ff6b6b;
-  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 0.8rem;
 }
 
 .statLabel {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #666;
+  font-weight: 500;
 }
 
 @media (max-width: 992px) {
+  .about {
+    padding: 6rem 2rem;
+  }
+
   .aboutContent {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 4rem;
   }
 
   .aboutImage {
-    max-width: 500px;
+    max-width: 900px;
     margin: 0 auto;
+    transform: none;
   }
 
   .aboutText {
     text-align: center;
   }
+
+  .aboutText h2::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .aboutDescription {
+    padding-left: 0;
+    border-left: none;
+    border-bottom: 3px solid rgba(255, 107, 107, 0.3);
+    padding-bottom: 1.5rem;
+  }
 }
 
 @media (max-width: 768px) {
   .about {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
   }
 
   .aboutText h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
   }
 
   .aboutDescription {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .stats {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 2rem;
+    border-top: none;
+  }
+
+  .statNumber {
+    font-size: 2.5rem;
   }
 } 

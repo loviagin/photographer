@@ -10,8 +10,8 @@ import styles from './page.module.css';
 
 const categoryData = {
   portraits: {
-    title: 'Портреты',
-    description: 'Индивидуальные и групповые портреты',
+    title: 'Portraits',
+    description: 'Individual and group portraits',
     images: [
       '/portfolio/portrait1.webp',
       '/portfolio/portrait2.webp',
@@ -19,8 +19,8 @@ const categoryData = {
     ],
   },
   weddings: {
-    title: 'Свадьбы',
-    description: 'Свадебные церемонии и торжества',
+    title: 'Weddings',
+    description: 'Wedding ceremonies and events',
     images: [
       '/portfolio/portrait4.webp',
       '/portfolio/portrait5.webp',
@@ -28,8 +28,8 @@ const categoryData = {
     ],
   },
   events: {
-    title: 'Мероприятия',
-    description: 'Корпоративные и частные мероприятия',
+    title: 'Events',
+    description: 'Corporate and private events',
     images: [
       '/portfolio/portrait7.webp',
       '/portfolio/portrait8.webp',
@@ -96,7 +96,7 @@ export default function CategoryPage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <Link href="/portfolio" className={styles.backButton}>
-          ← Назад к категориям
+          ← Back to categories
         </Link>
         <h1 className={styles.title}>{data.title}</h1>
         <p className={styles.description}>{data.description}</p>

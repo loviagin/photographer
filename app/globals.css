@@ -4,13 +4,13 @@
   --card-background: #02000b43;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #252829;
     --foreground: #ededed;
     --card-background: #02000b;
   }
-}
+} */
 
 html,
 body {
@@ -28,6 +28,7 @@ body {
 
 * {
   box-sizing: border-box;
+  text-decoration: none;
   padding: 0;
   margin: 0;
 }
@@ -36,8 +37,8 @@ a {
   color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
-}
+} */

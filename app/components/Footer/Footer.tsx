@@ -8,26 +8,15 @@ export default function Footer() {
         <div className={styles.footerLogo}>
           <h3>Photochki</h3>
           <p className={styles.footerText}>
-            Профессиональная фотосъемка для любых событий
+            Professional photography for any events
           </p>
         </div>
 
         <div className={styles.footerLinks}>
-          <div className={styles.linkGroup}>
-            <h3>Контакты</h3>
-            <ul>
-              <li>
-                <a href="tel:+79999999999">+7 (999) 999-99-99</a>
-              </li>
-              <li>
-                <a href="mailto:info@photographer.ru">info@photographer.ru</a>
-              </li>
-              <li>г. Москва, ул. Примерная, д. 1</li>
-            </ul>
-          </div>
+          
 
           <div className={styles.linkGroup}>
-            <h3>Социальные сети</h3>
+            {/* <h3>Социальные сети</h3>
             <ul className={styles.socialLinks}>
               <li>
                 <a href="#" target="_blank" rel="noopener noreferrer">
@@ -43,14 +32,27 @@ export default function Footer() {
                 <a href="#" target="_blank" rel="noopener noreferrer">
                   Telegram
                 </a>
+              </li> 
+            </ul>*/}
+          </div>
+
+          <div className={styles.linkGroup}>
+            <h3>Contacts</h3>
+            <ul>
+              <li>
+                <a href="tel:+19048359485">+1 904 835 94 85</a>
               </li>
+              <li>
+                <a href="mailto:voroninsfamilyllc@gmail.com">voroninsfamilyllc@gmail.com</a>
+              </li>
+              <li>St. Augustine, FL, USA</li>
             </ul>
           </div>
         </div>
       </div>
 
       <div className={styles.footerBottom}>
-        <p>&copy; {new Date().getFullYear()} Фотограф. Все права защищены.</p>
+        <p>&copy; {new Date().getFullYear()} Photographer. All rights reserved.</p>
       </div>
     </footer>
   );

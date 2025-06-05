@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './Header.module.css';
+import BookingForm from '../BookingForm/BookingForm';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isBookingFormOpen, setIsBookingFormOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -17,7 +18,7 @@ export default function Header() {
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
           <h3>Photochki</h3>
-        </Link>
+        </Link> 
 
         <button 
           className={styles.mobileMenuButton}
@@ -33,18 +34,26 @@ export default function Header() {
 
         <nav className={`${styles.nav} ${isMenuOpen ? styles.active : ''}`}>
           <ul className={styles.navList}>
-            <li><Link href="/portfolio" onClick={() => setIsMenuOpen(false)}>Портфолио</Link></li>
-            <li><Link href="/services" onClick={() => setIsMenuOpen(false)}>Услуги и цены</Link></li>
-            <li><Link href="/about" onClick={() => setIsMenuOpen(false)}>О нас</Link></li>
-            <li><Link href="/reviews" onClick={() => setIsMenuOpen(false)}>Отзывы</Link></li>
-            <li><Link href="/contacts" onClick={() => setIsMenuOpen(false)}>Контакты</Link></li>
+            <li><Link href="/portfolio" onClick={() => setIsMenuOpen(false)}>Portfolio</Link></li>
+            <li><Link href="/#services" onClick={() => setIsMenuOpen(false)}>Services and prices</Link></li>
+            <li><Link href="/#about" onClick={() => setIsMenuOpen(false)}>About</Link></li>
+            {/* <li><Link href="/reviews" onClick={() => setIsMenuOpen(false)}>Reviews</Link></li>
+            <li><Link href="/contacts" onClick={() => setIsMenuOpen(false)}>Contacts</Link></li> */}
           </ul>
         </nav>
 
-        <button className={styles.orderButton}>
-          Записаться на фотосессию
+        <button 
+          className={styles.orderButton}
+          onClick={() => setIsBookingFormOpen(true)}
+        >
+          Book a photo session
         </button>
       </div>
+
+      <BookingForm 
+        isOpen={isBookingFormOpen}
+        onClose={() => setIsBookingFormOpen(false)}
+      />
     </header>
   );
 } 
